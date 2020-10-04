@@ -52,7 +52,7 @@ MYSQL_ROW row;
  * SQL error hanlder
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |24.09.2018|  bet | Init Version
  **********************************************************************/
@@ -67,7 +67,7 @@ void sql_finish_with_error(MYSQL *conn)
  * Login into SQL databench
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |24.09.2018|  bet | Init Version
  **********************************************************************/
@@ -100,7 +100,7 @@ void sql_login (void)
  * Enters a new system data into table "FANET.system_data_1min"
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |26.09.2018|  bet | Init Version
  **********************************************************************/
@@ -132,7 +132,7 @@ void sql_write_system_data_1min (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row, 
  * Enters a new system data into table "FANET.system_data_15min"
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |29.12.2018|  bet | Init Version
  **********************************************************************/
@@ -166,7 +166,7 @@ void sql_write_system_data_15min (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row,
  * Enters a new tracking data into table "FANET.object_tracking"
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |26.09.2018|  bet | Init Version
  * 0.2 |10.11.2018|  bet | Modified: radiodata as struct
@@ -218,7 +218,7 @@ void sql_write_tracking_data (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row,
  * Update data in table FANET.object_name
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |26.09.2018|  bet | Init Version
  * 0.2 |01.01.2019|  bet | Modified: name data as struct
@@ -284,7 +284,7 @@ void sql_write_object_name (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row,
  * of a specific weather station.
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |24.09.2018|  bet | Init Version
  * 0.2 |01.01.2019|  bet | Modified: weather station name as struct
@@ -340,7 +340,7 @@ void sql_get_weather_station (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row, sWe
  * of a specific weather station.
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |24.09.2018|  bet | Init Version
  * 0.2 |01.01.2019|  bet | Modified: weather data as struct
@@ -404,7 +404,7 @@ void sql_get_weather_values (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row, sWea
  * Delete old date in table "FANET.system_data_1min"
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |26.12.2018|  bet | Init Version
  **********************************************************************/
@@ -433,7 +433,7 @@ void sql_delete_old_data (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row)
  * Update routing table FANET.routing_table
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |26.09.2018|  bet | Init Version
  **********************************************************************/
@@ -491,7 +491,7 @@ void sql_update_routing_table (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row, sR
  * Search for online 
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |26.09.2018|  bet | Init Version
  **********************************************************************/
@@ -539,7 +539,7 @@ void sql_search_online_address (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row, s
  * Write message to FANET.message_send
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |26.09.2018|  bet | Init Version
  **********************************************************************/
@@ -571,7 +571,7 @@ void sql_write_message_send (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row, sMes
  * Search Welcome message in FANET.message_send
  * 
  * *********************************************************************
- * Ver | Date     | Sign | Describtion
+ * Ver | Date     | Sign | Description
  * ---------------------------------------------------------------------
  * 0.1 |30.12.2018|  bet | Init Version
  **********************************************************************/
