@@ -31,8 +31,8 @@
 #include "fanet_global.c"
 #include "fanet_mysql.c"
 
-#define STATION_LAT  46.684681			// Position of Ground Statation -> Is needed to calculate the distance to the tracked object 
-#define STATION_LON  7.867658			// Modfied if necessary
+#define STATION_LAT  48.111666			// Position of Ground Statation -> Is needed to calculate the distance to the tracked object 
+#define STATION_LON  8.307333	 		// Modfied if necessary
 
 
 void decode_tracking (sRawMessage *_rx_message, sTRACKING *_tracking)

@@ -32,7 +32,7 @@
 #include "fanet_radio.c"
 
 #define STATION_MANUF	0xFC
-#define STATION_ID		0x9002
+#define STATION_ID		0x9001
 
 #define	WELCOME_MESSAGE_LIFETIME	43200 //86400 	// 86400 sec = 24:00:00 h
 #define	ONLINE_AGE		60			// Online if object is not older than 60 sec.
@@ -41,7 +41,7 @@
 #define INTERVAL_MESSENGER		20;
 
 
-unsigned char    WELCOME_MESSAGE[] = "Willkommen im Fluggebiet Interlaken. Testbetrieb der ersten FANET-Bodenstation. Kontakt: christoph@betschart.ch";
+unsigned char    WELCOME_MESSAGE[] = "Willkommen im Fluggebiet der Baar-Flieger. Testbetrieb der FANET-Bodenstation. Kontakt: info@baar-flieger.de";
 
 
 
