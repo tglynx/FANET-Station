@@ -14,8 +14,8 @@
                 "forwardX11": false,
                 "host": "svnxraspi1",
                 "cwd": "/home/pi/repos/tglynx/FANET-Station/Groundstation/V0_2/",
-                //"keyfile": "/path/to/keyfile :)",
-                "password": "SETME",
+                //"keyfile": "PATH-TO-ID-FILE",
+                "password": "PASSWORD",
                 "user": "pi",
                 // Optional, content will be executed on the SSH host before the debugger call.
                 //"bootstrap": "source /home/remoteUser/some-env"
