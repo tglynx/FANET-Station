@@ -35,15 +35,13 @@
 
 // Configure the Weather Stations (In a next Version: Better solution to read out a SQL databench)
 const char * stations_id [] = {
-	"windline-4117",
-	"meteoswiss-INT",
-	"windline-4116",
-	"windline-5200",
-	"windline-4115",
-	"windline-4109"};
+	"fc:9001",
+	"fc:9002",
+	"fc:9003",
+	"fc:9004"};
 #define N_STATIONS (sizeof (stations_id) / sizeof (const char *))
 const byte source_manufacturer_id = 0xFC;
-const uint16_t source_unique_id [] = {0x9001,0x9002,0x9003,0x9004,0x9005,0x9006};
+const uint16_t source_unique_id [] = {0x9001,0x9002,0x9003,0x9004};
 
 #define	START_OFFSET_DATA	4;				// Starts the first transmission of weather data after 4 sec. when the software has started
 #define START_OFFSET_NAME	8;				// Starts the first transmission of weather station name after 8 sec. when the software has started
