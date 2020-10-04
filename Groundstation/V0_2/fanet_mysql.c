@@ -75,7 +75,7 @@ void sql_login (void)
 {
 	char *_sql_server = "localhost";
 	char *_sql_user = "pi";
-	char *_sql_password = "raspberry"; /* set me first */
+	char *_sql_password = "cpe1704tks"; /* set me first */
 	char *_sql_database = "FANET";
 
 	if (function_debug) printf("[%sFUNC%s]  sql_login()\n",KCYN, KNRM);
@@ -213,6 +213,74 @@ void sql_write_tracking_data (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row,
 		sql_finish_with_error(_conn);
 	}
 }
+
+/*******************************************************************************
+ * Enters new weather data received by FANET into table "FANET.weather_values" 
+ * 
+ * *****************************************************************************
+ * Ver | Date     | Sign | Description
+ * -----------------------------------------------------------------------------
+ * 0.1 |15.09.2020| somi | Init Version
+ ******************************************************************************/
+void sql_write_weather_data (MYSQL *_conn, MYSQL_RES *_res, MYSQL_ROW _row,
+	sRadioData	*_radiodata,
+	sFanetMAC	*_fanet_mac,
+	sWeather *_weather_data)
+{
+	char _sql_query[1000];
+	char _buffer[100];
+	
+	if (function_debug) printf("[%sFUNC%s]  sql_write_weather_data()\n",KCYN, KNRM); 
+
+	sprintf(_sql_query, "INSERT INTO FANET.weather_values (_id_stations, time, temp, hum, pres, w_avg, w_max, w_dir) VALUES ('%02x:%04x', '%d', ",
+		_fanet_mac->s_manufactur_id, _fanet_mac->s_unique_id,
+		_radiodata->timestamp);
+
+	if (_weather_data->temp) 
+	{
+		sprintf(_buffer, "'%f', ", _weather_data->temperature);
+	} else {
+		strcpy(_buffer, "NULL, ");
+	}
+	strcat(_sql_query, _buffer);
+
+	if (_weather_data->humid) 
+	{
+		sprintf(_buffer, "'%f', ", _weather_data->humidity);
+	} else {
+		strcpy(_buffer, "NULL, ");
+	}
+	strcat(_sql_query, _buffer);
+
+	if (_weather_data->barom) 
+	{
+		sprintf(_buffer, "'%f', ", _weather_data->barometric);
+	} else {
+		strcpy(_buffer, "NULL, ");
+	}
+	strcat(_sql_query, _buffer);
+	
+	if (_weather_data->wind) 
+	{
+		sprintf(_buffer, "'%f', '%f', '%f')",
+		_weather_data->wind_speed,
+		_weather_data->wind_gusts,
+		_weather_data->wind_heading);
+	} else {
+		strcpy(_buffer, "NULL, NULL, NULL);");
+	}
+	strcat(_sql_query, _buffer);
+
+	if (SQL_query_debug) printf("[%sSQL%s]   %s\n",KBLU, KNRM, _sql_query);
+
+	mysql_free_result(_res);
+
+	if (mysql_query(_conn, _sql_query))
+	{
+		sql_finish_with_error(_conn);
+	}
+}
+
 
 /***********************************************************************
  * Update data in table FANET.object_name
@@ -636,6 +704,10 @@ void write_object_tracking (sRadioData *_radiodata, sFanetMAC *_fanet_mac, sTRAC
 	sql_write_tracking_data (conn, res, row, _radiodata, _fanet_mac, _tracking);
 }
 
+void write_weather_data (sRadioData *_radiodata, sFanetMAC *_fanet_mac, sWeather *_weatherdata)
+{
+	sql_write_weather_data (conn, res, row, _radiodata, _fanet_mac, _weatherdata);
+}
 
 void write_object_name (sRadioData *_radiodata, sFanetMAC *_fanet_mac, sName *_name)
 {
