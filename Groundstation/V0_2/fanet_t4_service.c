@@ -380,5 +380,5 @@ void type_4_service_receiver (sRadioData *_radiodata, sFanetMAC *_fanet_mac, sRa
 	
 	terminal_message_4 (0,0, _radiodata, _fanet_mac, &_rx_weather_data);
 
-	//write_weather_data (_radiodata, _fanet_mac, &_rx_weather_data);	
+	write_weather_data (_radiodata, _fanet_mac, &_rx_weather_data);	
 }
