@@ -71,7 +71,7 @@ CREATE TABLE `object_tracking` (
   `freq_dev` int(11) DEFAULT NULL,
   `latitude` float DEFAULT NULL,
   `longitude` float DEFAULT NULL,
-  `online_tracking` bit(1) DEFAULT NULL,
+  `online_tracking` boolean DEFAULT NULL,
   `aircraft_typ` smallint(6) DEFAULT NULL,
   `alt` smallint(6) DEFAULT NULL,
   `speed` float DEFAULT NULL,
