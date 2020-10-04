@@ -189,3 +189,12 @@ CREATE TABLE `weather_values` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-01-27 17:39:24
+
+
+-- Sample Data
+insert into weather_stations (_id, name, short, longitude, latitude, alt) values ("fc:9001", "Baar-Flieger Fürstenberg-Geisingen e.V.", "Baar-Flieger", 8.30725, 48.11131, 875);
+insert into weather_stations (_id, name, short, longitude, latitude, alt) values ("fc:9002", "Fürstenberg Süd Startplatz", "Wind:Fürst-Süd", 8.56284, 47.88948, 915);
+insert into weather_stations (_id, name, short, longitude, latitude, alt) values ("fc:9003", "Fürstenberg Nord Startplatz", "Wind:Fürst-Nord", 8.56519, 47.8914, 850);
+insert into weather_stations (_id, name, short, longitude, latitude, alt) values ("fc:9004", "Hubertushütte West Startplatz", "Wind:Hubertushütte", 8.6328, 47.9437, 850);
+
+insert into weather_stations (_id, name, short, longitude, latitude, alt) values ("01:0113", "somi´s Skytraxx Wetterstation", "Wind:somi", 8.30725, 48.11131, 875);
