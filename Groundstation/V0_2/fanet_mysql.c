@@ -27,7 +27,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <mysql/mysql.h>
+#include <mariadb/mysql.h>
 #include "fanet_struct.c"
 #include "fanet_global.c"
 
