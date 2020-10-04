@@ -44,6 +44,7 @@
 #include "fanet_t3_messenger.c"
 #include "fanet_t4_service.c"
 #include "fanet_routing.c"
+#include "fanet_holfuy.c"
 
 #include <sys/ioctl.h> 
 
@@ -232,8 +233,8 @@ int main (int argc, char *argv[])
 
 	char _second_new;
 	char _second_old;
-	//char _minute_new;
-	//char _minute_old;
+	char _minute_new;
+	char _minute_old;
 
     sql_login();
     
@@ -256,7 +257,7 @@ int main (int argc, char *argv[])
 		now = time(0);
 		tm = localtime (&now);
 		_second_new = tm->tm_sec;
-		//_minute_new = tm->tm_min;
+		_minute_new = tm->tm_min;
 		
 		system_data();
 		receivepacket();
@@ -270,11 +271,38 @@ int main (int argc, char *argv[])
 		
 		}
 		
-		/*if (_minute_new!=_minute_old)
+		if (_minute_new!=_minute_old)
 		{
 			_minute_old = _minute_new;
-			show_register();
-		}*/
+
+			//HOLFUY CHECKUNG
+			sRadioData h_radiodata;
+			sFanetMAC h_mac;
+			sWeather h_weather;
+
+			char *hf_token = "Spy4dg9Lhx";
+
+			h_radiodata.timestamp = time(NULL);
+			h_mac.s_manufactur_id = 0xFC;
+
+			//Süd
+			get_holfuy_weather_json("342", hf_token, &h_weather);
+			h_mac.s_unique_id = 0x9002;
+			write_weather_data(&h_radiodata, &h_mac, &h_weather);
+
+			//Nord
+			get_holfuy_weather_json("753", hf_token, &h_weather);
+			h_mac.s_unique_id = 0x9003;
+			write_weather_data(&h_radiodata, &h_mac, &h_weather);
+
+			//West
+			get_holfuy_weather_json("1160", hf_token, &h_weather);
+			h_mac.s_unique_id = 0x9004;
+			write_weather_data(&h_radiodata, &h_mac, &h_weather);
+			//END HOLFUY CHECKUNG
+
+			//show_register();
+		}
 		
         delay(1);
 	}
